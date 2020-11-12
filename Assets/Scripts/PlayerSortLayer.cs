@@ -15,6 +15,6 @@ public class PlayerSortLayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sprite) sprite.sortingOrder = (int) ((this.transform.position.y + sprite.bounds.size.y/1.89)* -100);
+        if (sprite) sprite.sortingOrder = (int) ((this.transform.position.y + sprite.bounds.size.y/1.89)* -10);
     }
 }
