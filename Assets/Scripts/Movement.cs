@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
 			interactables = GameObject.FindGameObjectsWithTag("Interactable");
 			foreach (GameObject I in interactables)
 			{
-				if(I.activeSelf) I.GetComponent<NPCInteraction>().dialoguePart++;
+				if(I.GetComponent<NPCInteraction>().active) I.GetComponent<NPCInteraction>().dialoguePart++;
 			}
 		}
 		
