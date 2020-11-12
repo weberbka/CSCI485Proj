@@ -34,42 +34,42 @@ public class Movement : MonoBehaviour
 		}
 		
 		//MOVEMENT
-		if (Input.GetKeyUp(KeyCode.LeftArrow))
+		if (Input.GetKeyUp(KeyCode.A))
 		{
 			anima.SetBool("left", false);
 			moveLeft = false;
 		}
-		if (Input.GetKeyUp(KeyCode.RightArrow))
+		if (Input.GetKeyUp(KeyCode.D))
 		{
 			anima.SetBool("right", false);
 			moveRight = false;
 		}
-		if (Input.GetKeyUp(KeyCode.UpArrow))
+		if (Input.GetKeyUp(KeyCode.W))
 		{
 			anima.SetBool("up", false);
 			moveUp = false;
 		}
-		if (Input.GetKeyUp(KeyCode.DownArrow))
+		if (Input.GetKeyUp(KeyCode.S))
 		{
 			anima.SetBool("down", false);
 			moveDown = false;
 		}
-		if (Input.GetKeyDown(KeyCode.LeftArrow))
+		if (Input.GetKeyDown(KeyCode.A))
 		{
 			anima.SetBool("left", true);
 			moveLeft = true;
 		}
-		if (Input.GetKeyDown(KeyCode.RightArrow))
+		if (Input.GetKeyDown(KeyCode.D))
 		{
 			anima.SetBool("right", true);
 			moveRight = true;
 		}
-		if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.W))
 		{
 			anima.SetBool("up", true);
 			moveUp = true;
 		}
-		if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKeyDown(KeyCode.S))
 		{
 			anima.SetBool("down", true);
 			moveDown = true;
@@ -80,6 +80,7 @@ public class Movement : MonoBehaviour
 			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(-SPEED, SPEED, 0.0f));
 		}
 		else if (moveRight && moveDown)
 		{
@@ -87,6 +88,7 @@ public class Movement : MonoBehaviour
 			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(SPEED, -SPEED, 0.0f));
 		}
 		else if (moveUp && moveRight)
 		{
@@ -94,6 +96,7 @@ public class Movement : MonoBehaviour
 			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(SPEED, SPEED, 0.0f));
 		}
 		else if (moveDown && moveLeft)
 		{
@@ -101,30 +104,35 @@ public class Movement : MonoBehaviour
 			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(-SPEED, -SPEED, 0.0f));
 		}
         else if (moveLeft)
 		{
 			Vector3 position = this.transform.position;
 			position.x -= SPEED;
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(-SPEED, 0.0f, 0.0f));
 		}
 		else if (moveRight)
 		{
 			Vector3 position = this.transform.position;
 			position.x += SPEED;
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(SPEED, 0.0f, 0.0f));
 		}
 		else if (moveUp)
 		{
 			Vector3 position = this.transform.position;
 			position.y += SPEED;
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(0.0f, SPEED, 0.0f));
 		}
 		else if (moveDown)
 		{
 			Vector3 position = this.transform.position;
 			position.y -= SPEED;
 			this.transform.position = position;
+			//Camera.current.transform.Translate(new Vector3(0.0f, -SPEED, 0.0f));
 		}
     }
 }
