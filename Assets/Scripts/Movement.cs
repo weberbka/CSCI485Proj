@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
 	bool moveUp = false;
 	bool moveRight = false;
 	
+	Vector3 lastPosition;
+	private bool collided = false;
+	
 	public GameObject[] interactables;
 	
     // Start is called before the first frame update
@@ -19,6 +22,12 @@ public class Movement : MonoBehaviour
     {
         
     }
+	
+	private void OnTriggerEnter2D(Collider2D collision){
+		Debug.Log("Hit detected");
+        this.transform.position = lastPosition;
+		collided = true;
+	}
 
     // Update is called once per frame
     void Update()
@@ -34,6 +43,8 @@ public class Movement : MonoBehaviour
 		}
 		
 		//MOVEMENT
+		Vector3 position = this.transform.position;
+		if(!collided) lastPosition = position;
 		if (Input.GetKeyUp(KeyCode.A))
 		{
 			anima.SetBool("left", false);
@@ -76,7 +87,6 @@ public class Movement : MonoBehaviour
 		}
 		if (moveLeft && moveUp)
 		{
-			Vector3 position = this.transform.position;
 			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
@@ -84,7 +94,6 @@ public class Movement : MonoBehaviour
 		}
 		else if (moveRight && moveDown)
 		{
-			Vector3 position = this.transform.position;
 			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
@@ -92,7 +101,6 @@ public class Movement : MonoBehaviour
 		}
 		else if (moveUp && moveRight)
 		{
-			Vector3 position = this.transform.position;
 			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
@@ -100,7 +108,6 @@ public class Movement : MonoBehaviour
 		}
 		else if (moveDown && moveLeft)
 		{
-			Vector3 position = this.transform.position;
 			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
 			this.transform.position = position;
@@ -108,28 +115,24 @@ public class Movement : MonoBehaviour
 		}
         else if (moveLeft)
 		{
-			Vector3 position = this.transform.position;
 			position.x -= SPEED;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(-SPEED, 0.0f, 0.0f));
 		}
 		else if (moveRight)
 		{
-			Vector3 position = this.transform.position;
 			position.x += SPEED;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(SPEED, 0.0f, 0.0f));
 		}
 		else if (moveUp)
 		{
-			Vector3 position = this.transform.position;
 			position.y += SPEED;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(0.0f, SPEED, 0.0f));
 		}
 		else if (moveDown)
 		{
-			Vector3 position = this.transform.position;
 			position.y -= SPEED;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(0.0f, -SPEED, 0.0f));
