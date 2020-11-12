@@ -6,7 +6,7 @@ using System;
 public class Movement : MonoBehaviour
 {
 	public Animator anima;
-	const float SPEED = 0.01f;
+	const float SPEED = 0.0085f;
 	bool moveDown = false;
 	bool moveLeft = false;
 	bool moveUp = false;
