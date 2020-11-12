@@ -11,6 +11,9 @@ public class Movement : MonoBehaviour
 	bool moveLeft = false;
 	bool moveUp = false;
 	bool moveRight = false;
+	
+	public GameObject[] interactables;
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//INTERACTION
+		if (Input.GetKeyUp(KeyCode.Space))
+		{
+			interactables = GameObject.FindGameObjectsWithTag("Interactable");
+			foreach (GameObject I in interactables)
+			{
+				if(I.activeSelf) I.GetComponent<NPCInteraction>().dialoguePart++;
+			}
+		}
+		
+		//MOVEMENT
 		if (Input.GetKeyUp(KeyCode.LeftArrow))
 		{
 			anima.SetBool("left", false);
@@ -60,8 +74,6 @@ public class Movement : MonoBehaviour
 			anima.SetBool("down", true);
 			moveDown = true;
 		}
-		
-		
 		if (moveLeft && moveUp)
 		{
 			Vector3 position = this.transform.position;
