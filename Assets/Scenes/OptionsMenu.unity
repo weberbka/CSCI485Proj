@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 640772879}
   - component: {fileID: 640772882}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ReturnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,7 +565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 436, y: -201}
+  m_AnchoredPosition: {x: 305, y: -178.91}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640772879
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1307818655}
+      - m_Target: {fileID: 640772877}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
