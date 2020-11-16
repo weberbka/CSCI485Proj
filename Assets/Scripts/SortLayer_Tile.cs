@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exit : MonoBehaviour
+public class SortLayer_Tile : MonoBehaviour
 {
+	private Renderer sprite;
+	
     // Start is called before the first frame update
     void Start()
     {
-        Application.Quit();
+        sprite = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (sprite) sprite.sortingOrder = (int) ((this.transform.position.y + sprite.bounds.size.y/2)* -10);
     }
 }

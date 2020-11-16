@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MC's Home.unity
     guid: 9181f05bcc9002e45b5c9073e2f2135c
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: c86d483f097af7f40b661ff93fb5571f
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 0d88b228f0de31e409fe37adc45821a9
+  - enabled: 1
+    path: Assets/Scenes/PauseScreen.unity
+    guid: 328ce24071123174694355938656bb89
+  - enabled: 1
+    path: Assets/Scenes/OptionsMenu.unity
+    guid: f3b37a840827a3e42a1fecaf12e3ef94
   m_configObjects: {}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Movement : MonoBehaviour
 	Vector3 lastPosition;
 	private bool collided = false;
 	
+	public string inventory = "Inventory: None";
+	
+	//private bool pause = false;
+	
 	public GameObject[] interactables;
 	
     // Start is called before the first frame update
@@ -24,7 +29,6 @@ public class Movement : MonoBehaviour
     }
 	
 	private void OnTriggerEnter2D(Collider2D collision){
-		Debug.Log("Hit detected");
         this.transform.position = lastPosition;
 		collided = true;
 	}
@@ -45,6 +49,16 @@ public class Movement : MonoBehaviour
 		//MOVEMENT
 		Vector3 position = this.transform.position;
 		if(!collided) lastPosition = position;
+		if (Input.GetKeyUp(KeyCode.Escape))
+		{
+			/*if(pause){
+				pause = false;
+				SceneManager.LoadScene("EndScreen", LoadSceneMode.Additive);
+			}else{
+				pause = true;
+				SceneManager.LoadScene("EndScreen", LoadSceneMode.Additive);
+			}*/
+		}
 		if (Input.GetKeyUp(KeyCode.A))
 		{
 			anima.SetBool("left", false);

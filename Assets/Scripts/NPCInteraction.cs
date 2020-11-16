@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-	private GameObject player;
+	public GameObject player;
 	public ArrayList dialogue = new ArrayList();
 	private GameObject quest;
 	public bool hasQuest = false;

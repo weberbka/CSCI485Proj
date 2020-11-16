@@ -31,7 +31,7 @@ public class TraverseNodes : MonoBehaviour
 				this.transform.position = position;
 			}else timeout -= Time.deltaTime;
 		}else{
-			timeout = 10;
+			timeout = 5;
 			startNode = (int) UnityEngine.Random.Range(0.0f, (float) (nodes.Length));
 		}
     }
