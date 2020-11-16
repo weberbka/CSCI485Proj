@@ -5,7 +5,7 @@ using System;
 
 public class TraverseNodes : MonoBehaviour
 {
-	const float SPEED = 0.0025f;
+	const float SPEED = 1f;
 	public GameObject[] nodes;
 	public int startNode = 0;
 	private float timeout = 0;
@@ -24,10 +24,10 @@ public class TraverseNodes : MonoBehaviour
 			//float step = SPEED * Time.deltaTime;
 			//transform.position = Vector3.MoveTowards(transform.position, nodes[startNode].transform.position, step);
 			if(timeout <= 0){
-				if(position.x < nodes[startNode].transform.position.x) position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-				else position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-				if(position.y < nodes[startNode].transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-				else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
+				if(position.x < nodes[startNode].transform.position.x) position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+				else position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+				if(position.y < nodes[startNode].transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+				else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 				this.transform.position = position;
 			}else timeout -= Time.deltaTime;
 		}else{

@@ -6,22 +6,26 @@ using UnityEngine.UI;
 
 public class start : MonoBehaviour
 {
-    public Button beg, ex;
+    public Button beg, ex, title;
 	
     void Start()
     {
-        beg.onClick.AddListener(begin);
+        if(beg != null) beg.onClick.AddListener(begin);
         ex.onClick.AddListener(end);
+		title.onClick.AddListener(titl);
     }
 
     void begin()
     {
 		SceneManager.LoadScene("City", LoadSceneMode.Single);
-		SceneManager.UnloadSceneAsync("StartMenu");
     }
 	
 	void end()
     {
 		Application.Quit();
     }
+	
+	void titl(){
+		SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
+	}
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Movement : MonoBehaviour
 {
 	public Animator anima;
-	const float SPEED = 0.0085f;
+	const float SPEED = 3.5f;
 	bool moveDown = false;
 	bool moveLeft = false;
 	bool moveUp = false;
@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
 	
 	public string inventory = "Inventory: None";
 	
-	//private bool pause = false;
+	private bool pause = false;
 	
 	public GameObject[] interactables;
 	
@@ -51,13 +51,13 @@ public class Movement : MonoBehaviour
 		if(!collided) lastPosition = position;
 		if (Input.GetKeyUp(KeyCode.Escape))
 		{
-			/*if(pause){
+			if(pause){
 				pause = false;
-				SceneManager.LoadScene("EndScreen", LoadSceneMode.Additive);
+				SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Single);
 			}else{
 				pause = true;
-				SceneManager.LoadScene("EndScreen", LoadSceneMode.Additive);
-			}*/
+				SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Single);
+			}
 		}
 		if (Input.GetKeyUp(KeyCode.A))
 		{
@@ -101,53 +101,53 @@ public class Movement : MonoBehaviour
 		}
 		if (moveLeft && moveUp)
 		{
-			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
+			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(-SPEED, SPEED, 0.0f));
 		}
 		else if (moveRight && moveDown)
 		{
-			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
+			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(SPEED, -SPEED, 0.0f));
 		}
 		else if (moveUp && moveRight)
 		{
-			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
+			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(SPEED, SPEED, 0.0f));
 		}
 		else if (moveDown && moveLeft)
 		{
-			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
-			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2);
+			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(-SPEED, -SPEED, 0.0f));
 		}
         else if (moveLeft)
 		{
-			position.x -= SPEED;
+			position.x -= SPEED * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(-SPEED, 0.0f, 0.0f));
 		}
 		else if (moveRight)
 		{
-			position.x += SPEED;
+			position.x += SPEED * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(SPEED, 0.0f, 0.0f));
 		}
 		else if (moveUp)
 		{
-			position.y += SPEED;
+			position.y += SPEED * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(0.0f, SPEED, 0.0f));
 		}
 		else if (moveDown)
 		{
-			position.y -= SPEED;
+			position.y -= SPEED * Time.deltaTime;
 			this.transform.position = position;
 			//Camera.current.transform.Translate(new Vector3(0.0f, -SPEED, 0.0f));
 		}
