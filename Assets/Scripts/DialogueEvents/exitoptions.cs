@@ -17,7 +17,7 @@ public class exitoptions : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
 		{
 
-			SceneManager.UnloadScene("OptionsMenu");
+			SceneManager.UnloadSceneAsync("OptionsMenu");
 		}
     }
 }
