@@ -5,6 +5,7 @@ using UnityEngine;
 public class SortLayer_Tile : MonoBehaviour
 {
 	private Renderer sprite;
+	public float divisorFromTop;
 	
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,6 @@ public class SortLayer_Tile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sprite) sprite.sortingOrder = (int) ((this.transform.position.y + sprite.bounds.size.y/2)* -10);
+        if (sprite) sprite.sortingOrder = (int) ((this.transform.position.y + sprite.bounds.size.y/divisorFromTop)* -10);
     }
 }
