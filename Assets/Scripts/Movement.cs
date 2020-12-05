@@ -15,7 +15,8 @@ public class Movement : MonoBehaviour
 	public string inventory = "Inventory: None";
 	private bool pause = false;
 	
-	public GameObject[] interactables;
+	public bool interactSignal = true;
+	
 	
     // Start is called before the first frame update
     void Start()
@@ -41,14 +42,10 @@ public class Movement : MonoBehaviour
 		}
 		
 		//INTERACTION
-		if (Input.GetKeyUp(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			interactables = GameObject.FindGameObjectsWithTag("Interactable");
-			foreach (GameObject I in interactables)
-			{
-				if(I.GetComponent<NPCInteraction>().active) I.GetComponent<NPCInteraction>().dialoguePart++;
-			}
-		}
+			interactSignal = true;
+		}else interactSignal = false;
 		
 		//OPTIONS
 		if (Input.GetKeyUp(KeyCode.Escape))

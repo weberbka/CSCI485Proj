@@ -8,7 +8,7 @@ public class TraverseNodes : MonoBehaviour
 	const float SPEED = 1f;
 	public GameObject[] nodes;
 	public int startNode = 0;
-	private float timeout = 0;
+	public float timeout = 0;
 	private Animator animator;
 
     // Start is called before the first frame update
