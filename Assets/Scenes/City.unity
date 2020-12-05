@@ -6033,8 +6033,8 @@ GameObject:
   - component: {fileID: 1791913171}
   - component: {fileID: 1791913170}
   - component: {fileID: 1791913169}
-  - component: {fileID: 1791913168}
   - component: {fileID: 1791913167}
+  - component: {fileID: 1791913168}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6071,8 +6071,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -6122,7 +6122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932997e819214344e9d0475b1f7380a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anima: {fileID: 1791913170}
   inventory: 'Inventory: None'
   interactables: []
 --- !u!212 &1791913172

@@ -6,18 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-	public Animator anima;
-	const float SPEED = 3.5f;
-	bool moveDown = false;
-	bool moveLeft = false;
-	bool moveUp = false;
-	bool moveRight = false;
+	const float SPEED = 3f;
 	
-	Vector3 lastPosition;
-	private bool collided = false;
+	private Rigidbody2D rb2d;
+	private Animator animator;
+	Vector2 movement;
 	
 	public string inventory = "Inventory: None";
-	
 	private bool pause = false;
 	
 	public GameObject[] interactables;
@@ -25,17 +20,26 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         rb2d = GetComponent<Rigidbody2D>();
+		 animator = GetComponent<Animator>();
     }
 	
-	private void OnTriggerEnter2D(Collider2D collision){
-        this.transform.position = lastPosition;
-		collided = true;
-	}
-
     // Update is called once per frame
     void Update()
     {
+		//MOVEMENT
+		movement.x = Input.GetAxisRaw("Horizontal");
+		movement.y = Input.GetAxisRaw("Vertical");
+		
+		animator.SetFloat("Horizontal", movement.x);
+		animator.SetFloat("Vertical", movement.y);
+		animator.SetFloat("Speed", movement.sqrMagnitude);
+		
+		if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1){
+			animator.SetFloat("LastHorizontal", Input.GetAxisRaw("Horizontal"));
+			animator.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
+		}
+		
 		//INTERACTION
 		if (Input.GetKeyUp(KeyCode.Space))
 		{
@@ -46,110 +50,19 @@ public class Movement : MonoBehaviour
 			}
 		}
 		
-		//MOVEMENT
-		Vector3 position = this.transform.position;
-		if(!collided) lastPosition = position;
+		//OPTIONS
 		if (Input.GetKeyUp(KeyCode.Escape))
 		{
 			if(pause){
 				pause = false;
-				SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Single);
 			}else{
 				pause = true;
-				SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Single);
+				SceneManager.LoadScene("OptionsMenu", LoadSceneMode.Additive);
 			}
 		}
-		if (Input.GetKeyUp(KeyCode.A))
-		{
-			anima.SetBool("left", false);
-			moveLeft = false;
-		}
-		if (Input.GetKeyUp(KeyCode.D))
-		{
-			anima.SetBool("right", false);
-			moveRight = false;
-		}
-		if (Input.GetKeyUp(KeyCode.W))
-		{
-			anima.SetBool("up", false);
-			moveUp = false;
-		}
-		if (Input.GetKeyUp(KeyCode.S))
-		{
-			anima.SetBool("down", false);
-			moveDown = false;
-		}
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			anima.SetBool("left", true);
-			moveLeft = true;
-		}
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			anima.SetBool("right", true);
-			moveRight = true;
-		}
-		if (Input.GetKeyDown(KeyCode.W))
-		{
-			anima.SetBool("up", true);
-			moveUp = true;
-		}
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			anima.SetBool("down", true);
-			moveDown = true;
-		}
-		if (moveLeft && moveUp)
-		{
-			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(-SPEED, SPEED, 0.0f));
-		}
-		else if (moveRight && moveDown)
-		{
-			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(SPEED, -SPEED, 0.0f));
-		}
-		else if (moveUp && moveRight)
-		{
-			position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(SPEED, SPEED, 0.0f));
-		}
-		else if (moveDown && moveLeft)
-		{
-			position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(-SPEED, -SPEED, 0.0f));
-		}
-        else if (moveLeft)
-		{
-			position.x -= SPEED * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(-SPEED, 0.0f, 0.0f));
-		}
-		else if (moveRight)
-		{
-			position.x += SPEED * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(SPEED, 0.0f, 0.0f));
-		}
-		else if (moveUp)
-		{
-			position.y += SPEED * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(0.0f, SPEED, 0.0f));
-		}
-		else if (moveDown)
-		{
-			position.y -= SPEED * Time.deltaTime;
-			this.transform.position = position;
-			//Camera.current.transform.Translate(new Vector3(0.0f, -SPEED, 0.0f));
-		}
     }
+	
+	void FixedUpdate(){
+		rb2d.MovePosition(rb2d.position + movement * SPEED * Time.fixedDeltaTime);
+	}
 }

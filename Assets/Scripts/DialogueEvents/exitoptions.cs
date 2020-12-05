@@ -17,7 +17,7 @@ public class exitoptions : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
 		{
 
-			SceneManager.LoadScene("TileMaps", LoadSceneMode.Single);
+			SceneManager.UnloadScene("OptionsMenu");
 		}
     }
 }
