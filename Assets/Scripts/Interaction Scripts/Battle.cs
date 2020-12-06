@@ -10,6 +10,7 @@ public class Battle : MonoBehaviour
     {
        this.gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = PlayerData.weapon.name + " " + PlayerData.weapon.numDice + "D" + PlayerData.weapon.typeDice;
 	   this.gameObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = PlayerData.currentBattle.name + " " + PlayerData.currentBattle.numDice + "D" + PlayerData.currentBattle.typeDice;
+	   Camera.main.enabled = false;
     }
 
 
