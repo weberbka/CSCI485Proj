@@ -12,7 +12,6 @@ public class Battle : MonoBehaviour
     {
        this.gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = PlayerData.weapon.name + " " + PlayerData.weapon.numDice + "D" + PlayerData.weapon.typeDice;
 	   this.gameObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = PlayerData.currentBattle.name + " " + PlayerData.currentBattle.numDice + "D" + PlayerData.currentBattle.typeDice;
-	   Camera.main.enabled = false;
     }
 
 
@@ -36,6 +35,10 @@ public class Battle : MonoBehaviour
 						//You won
 						this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 						stateOfBattle = 1;
+						PlayerData.Loot findings = PlayerData.wheelOfLoot(PlayerData.currentBattle.name);
+						this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = "Findings: " + findings.name;
+						this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().enabled = true;
+						PlayerData.Inventory.Push(findings);
 					}else{
 						//You lost
 						this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
@@ -44,7 +47,9 @@ public class Battle : MonoBehaviour
 				}
 			}else if(stateOfBattle == 1){
 				//win
-				
+				SceneManager.UnloadSceneAsync("Battle");
+				Time.timeScale = 1.00f;
+				PlayerData.killSignal = true;
 			}else if(stateOfBattle == 2){
 				//lose
 				SceneManager.LoadSceneAsync("EndScreen");

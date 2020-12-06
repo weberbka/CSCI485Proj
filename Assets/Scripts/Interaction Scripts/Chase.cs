@@ -8,6 +8,8 @@ public class Chase : MonoBehaviour
 {
     public const float SPEED = 1f;
 	private GameObject[] nodes;
+	public GameObject pathsystem;
+	public int numberOfNodes;
 	private int startNode = 0;
 	private float timeout = 0;
 	private Animator animator;
@@ -27,6 +29,11 @@ public class Chase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(PlayerData.killSignal & isBattle){
+			PlayerData.killSignal = false;
+			Destroy(this.gameObject);
+			player.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = true;
+		}
         Vector2 position = this.transform.position;
 		Vector2 detectCenter = this.transform.position;
 		detectCenter.x += sprite.bounds.size.x/4.6f;
@@ -43,14 +50,15 @@ public class Chase : MonoBehaviour
 				SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
 				isBattle = true;
 				PlayerData.currentBattle = new PlayerData.Enemy{name = "Zombie", typeDice = 6, numDice = 1};
+				player.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = false;
 			}
 		}else{
-			if(Vector2.Distance(nodes[startNode].transform.position, position) > 1){
+			if(Vector2.Distance(pathsystem.transform.GetChild(startNode).transform.position, position) > 1){
 				if(timeout <= 0){
 					animator.SetBool("Walking", true);
-					if(position.x < nodes[startNode].transform.position.x) position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					if(position.x < pathsystem.transform.GetChild(startNode).transform.position.x) position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 					else position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
-					if(position.y < nodes[startNode].transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					if(position.y < pathsystem.transform.GetChild(startNode).transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 					else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 					this.transform.position = position;
 				}else{
@@ -59,8 +67,24 @@ public class Chase : MonoBehaviour
 				}
 			}else{
 				timeout = 5;
-				startNode = (int) UnityEngine.Random.Range(0.0f, (float) (nodes.Length));
+				startNode = (int) UnityEngine.Random.Range(0.0f, (float) (numberOfNodes));
 			}
+			// if(Vector2.Distance(nodes[startNode].transform.position, position) > 1){
+				// if(timeout <= 0){
+					// animator.SetBool("Walking", true);
+					// if(position.x < nodes[startNode].transform.position.x) position.x += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					// else position.x -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					// if(position.y < nodes[startNode].transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					// else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
+					// this.transform.position = position;
+				// }else{
+					// timeout -= Time.deltaTime;
+					// animator.SetBool("Walking", false);
+				// }
+			// }else{
+				// timeout = 5;
+				// startNode = (int) UnityEngine.Random.Range(0.0f, (float) (nodes.Length));
+			// }
 		}
     }
 }
