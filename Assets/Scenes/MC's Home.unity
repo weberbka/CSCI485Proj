@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301fdd862037659498ba9662b81e36a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Scenes/City
+  sceneToLoad: Scenes/City1
   destroyPlayer: 1
   transformPlayer: {x: 0, y: 0}
 --- !u!61 &1034678387
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/MC's Home inside
-  destroyPlayer: 0
+  destroyPlayer: 1
   transformPlayer: {x: 0, y: 0}
 --- !u!61 &1457701278
 BoxCollider2D:
