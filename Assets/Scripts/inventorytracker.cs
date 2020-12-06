@@ -16,6 +16,6 @@ public class inventorytracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inventory.text = this.transform.parent.transform.parent.GetComponent<Movement>().inventory;
+        //inventory.text = this.transform.parent.transform.parent.GetComponent<Movement>().inventory;
     }
 }

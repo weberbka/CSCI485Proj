@@ -38,7 +38,7 @@ public class Chase : MonoBehaviour
 			if(detectCenter.y < player.transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
-			if(Vector2.Distance(player.transform.position, detectCenter) < 0.5 && !isBattle){
+			if(Vector2.Distance(player.transform.position, detectCenter) < 1 && !isBattle){
 				Time.timeScale = 0.00f;
 				SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
 				isBattle = true;

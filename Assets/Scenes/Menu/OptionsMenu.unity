@@ -611,12 +611,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 640772877}
-        m_MethodName: 
+      - m_Target: {fileID: 640772882}
+        m_MethodName: openMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -668,10 +668,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 640772877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 301fdd862037659498ba9662b81e36a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d02d91390b833244b9ee08b8a9e177c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: StartMenu
 --- !u!1 &886106845
 GameObject:
   m_ObjectHideFlags: 0

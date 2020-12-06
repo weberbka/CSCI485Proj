@@ -16,7 +16,7 @@ public class recieverifle : MonoBehaviour
     void Update()
     {
         if(!eventActivated && script.dialoguePart == 2){
-			script.player.GetComponent<Movement>().inventory = "Inventory: Rifle";
+			//script.player.GetComponent<Movement>().inventory = "Inventory: Rifle";
 			eventActivated = true;
 		}
     }

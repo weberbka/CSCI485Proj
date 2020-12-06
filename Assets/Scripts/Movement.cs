@@ -11,10 +11,7 @@ public class Movement : MonoBehaviour
 	
 	private Rigidbody2D rb2d;
 	private Animator animator;
-	Vector2 movement;
-	
-	public string inventory = "Inventory: None";
-	
+	Vector2 movement;	
 	
 	private bool pause = false;
 	
