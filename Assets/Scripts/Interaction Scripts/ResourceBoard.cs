@@ -5,21 +5,39 @@ using TMPro;
 
 public class ResourceBoard : MonoBehaviour
 {
-	GameObject resourceCollector;
     // Start is called before the first frame update
     void Start()
     {
-        resourceCollector = GameObject.Find("Resource_Collector");
-       this.gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = resourceCollector.GetComponent<ResourceCollector>().food.ToString() + " LBS";
-	   this.gameObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = resourceCollector.GetComponent<ResourceCollector>().weapons.ToString() + " LBS";
-	   this.gameObject.transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = resourceCollector.GetComponent<ResourceCollector>().medicine.ToString() + " LBS";
-	   this.gameObject.transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = resourceCollector.GetComponent<ResourceCollector>().wood.ToString() + " LBS";
-	   this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = resourceCollector.GetComponent<ResourceCollector>().iron.ToString() + " LBS";
+       transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.food.ToString() + " LBS";
+	   transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.weapons.ToString() + " LBS";
+	   transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.medicine.ToString() + " LBS";
+	   transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.wood.ToString() + " LBS";
+	   transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.iron.ToString() + " LBS";
     }
 
     // Update is called once per frame
     void Update()
     {
-		
+		if(Input.GetMouseButtonUp(0)){
+			RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0);
+			if (hit && hit.collider.gameObject.name == "Resource Board"){
+				Debug.Log("CHECK");
+				ResourceCollector.food += PlayerData.food;
+				PlayerData.food = 0;
+				ResourceCollector.medicine += PlayerData.medicine;
+				PlayerData.medicine = 0;
+				ResourceCollector.weapons += PlayerData.weapons;
+				PlayerData.weapons = 0;
+				ResourceCollector.wood += PlayerData.wood;
+				PlayerData.wood = 0;
+				ResourceCollector.iron += PlayerData.iron;
+				PlayerData.iron = 0;
+				transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.food.ToString() + " LBS";
+				transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.weapons.ToString() + " LBS";
+				transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.medicine.ToString() + " LBS";
+				transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.wood.ToString() + " LBS";
+				transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.iron.ToString() + " LBS";
+			}
+		}
     }
 }

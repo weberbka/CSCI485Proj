@@ -8,11 +8,11 @@ public class ResourceCollector : MonoBehaviour
 	public GameObject player;
 	private bool open = false;
 	
-	public int food = 0;
-	public int weapons = 0;
-	public int medicine = 0;
-	public int wood = 0;
-	public int iron = 0;
+	public static float food = 0;
+	public static float weapons = 0;
+	public static float medicine = 0;
+	public static float wood = 0;
+	public static float iron = 0;
 	
 	
     // Start is called before the first frame update
@@ -33,9 +33,11 @@ public class ResourceCollector : MonoBehaviour
 				if(!open){
 					open = true;
 					SceneManager.LoadScene("ResourceMenu", LoadSceneMode.Additive);
+					player.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = false;
 				}else{
 					open = false;
 					SceneManager.UnloadSceneAsync("ResourceMenu");
+					player.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = true;
 				}
 			}
 		}else{
@@ -43,6 +45,7 @@ public class ResourceCollector : MonoBehaviour
 			if(open){
 				open = false;
 				SceneManager.UnloadSceneAsync("ResourceMenu");
+				player.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = true;
 			}
 		}
     }
