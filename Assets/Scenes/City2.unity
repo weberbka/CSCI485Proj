@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/City1
-  destroyPlayer: 0
+  destroyPlayer: 1
   transformPlayer: {x: 0, y: 0}
 --- !u!61 &387451866
 BoxCollider2D:
@@ -5853,7 +5853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/Road_To_Tree
-  destroyPlayer: 0
+  destroyPlayer: 1
   transformPlayer: {x: 0, y: 0}
 --- !u!61 &753977456
 BoxCollider2D:
