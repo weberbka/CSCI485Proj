@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class Movement : MonoBehaviour
 {
 	const float SPEED = 3f;
@@ -13,6 +14,8 @@ public class Movement : MonoBehaviour
 	Vector2 movement;
 	
 	public string inventory = "Inventory: None";
+	
+	
 	private bool pause = false;
 	
 	public bool interactSignal = true;

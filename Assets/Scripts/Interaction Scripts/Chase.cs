@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Chase : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Chase : MonoBehaviour
 	private Animator animator;
 	private GameObject player;
 	private SpriteRenderer sprite;
+	private bool isBattle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,12 @@ public class Chase : MonoBehaviour
 			if(detectCenter.y < player.transform.position.y) position.y += (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			else position.y -= (float) Math.Sqrt(Math.Pow(SPEED, 2)/2) * Time.deltaTime;
 			this.transform.position = position;
+			if(Vector2.Distance(player.transform.position, detectCenter) < 0.5 && !isBattle){
+				Time.timeScale = 0.00f;
+				SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
+				isBattle = true;
+				PlayerData.currentBattle = new PlayerData.Enemy{name = "Zombie", typeDice = 6, numDice = 1};
+			}
 		}else{
 			if(Vector2.Distance(nodes[startNode].transform.position, position) > 1){
 				if(timeout <= 0){
