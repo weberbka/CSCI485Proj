@@ -5,22 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-	private GameObject player;
     public string sceneToLoad;
-	public bool destroyPlayer = true;
-	public Vector2 transformPlayer;
+	public bool transformPlayer;
+	public Vector2 transformTo;
 	
 	void Start()
     {
-		player = GameObject.Find("Player"); 
+		
     }
 	
     void OnTriggerEnter2D(Collider2D other)
     {
+		if(transformPlayer) PlayerData.playerPosition = transformTo;
 		SceneManager.LoadSceneAsync(sceneToLoad);
-		if(!destroyPlayer){
-			player.transform.position = transformPlayer;
-			DontDestroyOnLoad(player);
-		}
+		
     }
 }

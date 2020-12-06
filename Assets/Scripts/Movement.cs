@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     {
          rb2d = GetComponent<Rigidbody2D>();
 		 animator = GetComponent<Animator>();
+		 transform.position = PlayerData.playerPosition;
     }
 	
     // Update is called once per frame

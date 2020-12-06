@@ -221,11 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  food: 0
-  weapons: 0
-  medicine: 0
-  wood: 0
-  iron: 0
 --- !u!114 &55827692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,8 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/City3
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 0
+  transformTo: {x: 0, y: 0}
 --- !u!61 &71358232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -454,8 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/Gate
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 0
+  transformTo: {x: 0, y: 0}
 --- !u!61 &240245872
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -887,8 +882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/MC's Home
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 0
+  transformTo: {x: 0, y: 0}
 --- !u!61 &847871178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1003,8 +998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/City2
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 0
+  transformTo: {x: 0, y: 0}
 --- !u!61 &1111851826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17747,7 +17742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932997e819214344e9d0475b1f7380a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: 'Inventory: None'
   interactSignal: 1
 --- !u!212 &1791913172
 SpriteRenderer:
