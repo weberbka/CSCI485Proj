@@ -36,9 +36,9 @@ public class Battle : MonoBehaviour
 						this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
 						stateOfBattle = 1;
 						PlayerData.Loot findings = PlayerData.wheelOfLoot(PlayerData.currentBattle.name);
-						this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = "Findings: " + findings.name;
+						this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = "Findings: " + findings.name + " (" + findings.type + " " + findings.worth + ")";
 						this.gameObject.transform.GetChild(4).gameObject.GetComponent<TMP_Text>().enabled = true;
-						PlayerData.Inventory.Push(findings);
+						PlayerData.consumeLoot(findings);
 					}else{
 						//You lost
 						this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
