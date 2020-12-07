@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Battle.unity
     guid: 27da74b8b32047a4295f0f7720820c65
+  - enabled: 1
+    path: Assets/Scenes/OutsideEvent.unity
+    guid: 56c9132a4a2c00744a646f69feaace97
   m_configObjects: {}
