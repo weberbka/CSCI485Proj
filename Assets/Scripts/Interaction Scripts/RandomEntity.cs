@@ -51,11 +51,10 @@ public class RandomEntity : MonoBehaviour
 							PlayerData.food += 0.5f;
 						}else if(roll > 50){
 							InteractionTextPro.text = "A dead man lays on the ground. He is covered in blood. You search him and find 2 twinkies in his pockets." + 
-							" Whatever killed him must not of liked twinkies (food 0.3).";
+							" Whatever killed him must of not liked twinkies (food 0.3).";
 							PlayerData.food += 0.3f;
 						}else{
 							isBattle = true;
-							InteractionTextPro.text = "A dead man lays on the ground. He is covered in blood. Suddenly he stirs and grabs your leg.";
 							Time.timeScale = 0.00f;
 							SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
 							PlayerData.killNullify = true;

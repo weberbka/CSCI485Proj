@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ResourceBoard : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class ResourceBoard : MonoBehaviour
 		if(Input.GetMouseButtonUp(0)){
 			RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0);
 			if (hit && hit.collider.gameObject.name == "Resource Board"){
-				Debug.Log("CHECK");
 				ResourceCollector.food += PlayerData.food;
 				PlayerData.food = 0;
 				ResourceCollector.medicine += PlayerData.medicine;
@@ -37,6 +37,10 @@ public class ResourceBoard : MonoBehaviour
 				transform.GetChild(2).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.medicine.ToString() + " LBS";
 				transform.GetChild(3).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.wood.ToString() + " LBS";
 				transform.GetChild(4).gameObject.GetComponent<TMP_Text>().text = ResourceCollector.iron.ToString() + " LBS";
+				//TEMPORARY HACK FOR 1ST OBJECTIVE
+				if(ResourceCollector.food >= 5f){
+					SceneManager.LoadSceneAsync("StartMenu", LoadSceneMode.Single);
+				}
 			}
 		}
     }

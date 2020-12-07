@@ -52,7 +52,7 @@ public static class PlayerData {
 	public static Vector2 playerPosition = new Vector2(1, 1);
 	public static bool useUnityPosition = true;
 	
-	public static float food = 0;
+	public static float food = 4.9f;
 	public static float weapons = 0;
 	public static float medicine = 0;
 	public static float wood = 0;
