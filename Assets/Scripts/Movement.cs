@@ -54,6 +54,14 @@ public class Movement : MonoBehaviour
 			interactSignal = true;
 		}else interactSignal = false;
 		
+		//WEAPON SWAP
+		if (Input.GetKeyUp(KeyCode.P))
+		{
+			PlayerData.Weapon temp = PlayerData.lastWeapon;
+			PlayerData.lastWeapon = PlayerData.weapon;
+			PlayerData.weapon = temp;
+		}
+		
 		//OPTIONS
 		if (Input.GetKeyUp(KeyCode.Escape))
 		{

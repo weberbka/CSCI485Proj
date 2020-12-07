@@ -553,10 +553,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   corpse: {fileID: 21300000, guid: c8560cb863f94da47bf2bc191df7905e, type: 3}
-  detectOffsetY: 0.85
-  detectOffsetX: 1.6
-  range: 2.4
-  text: 
+  detectOffsetY: 1.5
+  detectOffsetX: 2
+  range: 11.8
 --- !u!212 &248006992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2766,6 +2765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850145618}
   - component: {fileID: 850145619}
+  - component: {fileID: 850145620}
   m_Layer: 0
   m_Name: Quest Marker
   m_TagString: Untagged
@@ -2837,6 +2837,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &850145620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850145617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c7e3f7c35372e43a716d1f99aff9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fromTop: -12
 --- !u!1 &1098970407
 GameObject:
   m_ObjectHideFlags: 0

@@ -40004,7 +40004,12 @@ MonoBehaviour:
   detectOffsetY: 0.85
   detectOffsetX: 1.6
   range: 2.4
-  text: Hello waisdjs ajsidja asijda jasdji lkjasdsa jlsajdl kjas
+  text: "Hello Eric. I have a few important tips that will help you on your expeditions.
+    Firstly, you should know that you can carry two weapons. After you find your
+    second, swap them by pressing 'P'. \n\nSecondly, for every 1 lbs of weapons in
+    your pack, you will add 1 point to your combat roll. This will help you gain
+    the advantage in a fight.\n\nLastly, you will always win on a tie. Good luck
+    out there..."
 --- !u!1 &1710717313
 GameObject:
   m_ObjectHideFlags: 0
