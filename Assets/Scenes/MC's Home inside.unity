@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/MC's Home
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 1
+  transformTo: {x: -7, y: -2}
 --- !u!61 &140384910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -424,7 +424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932997e819214344e9d0475b1f7380a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: 'Inventory: None'
   interactSignal: 1
 --- !u!212 &641245170
 SpriteRenderer:
