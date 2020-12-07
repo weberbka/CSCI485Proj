@@ -1,21 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
-public class inventorytracker : MonoBehaviour
+public class InteractionTextPro : MonoBehaviour
 {
-	public Text inventory;
-	
+	public static string text = "";
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.GetComponent<TMP_Text>().text = text;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //inventory.text = this.transform.parent.transform.parent.GetComponent<Movement>().inventory;
+        
     }
 }

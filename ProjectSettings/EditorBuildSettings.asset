@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OutsideEvent.unity
     guid: 56c9132a4a2c00744a646f69feaace97
+  - enabled: 1
+    path: Assets/Scenes/Interaction.unity
+    guid: bd34cc522150e8f43b5d6da674fc8bb2
   m_configObjects: {}
