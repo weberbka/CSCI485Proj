@@ -4,10 +4,9 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 
-public class Chase : MonoBehaviour
+public class ZombieBehaviour : MonoBehaviour
 {
     public float SPEED = 1f;
-	private GameObject[] nodes;
 	public GameObject pathsystem;
 	public int numberOfNodes;
 	private int startNode = 0;
@@ -20,7 +19,6 @@ public class Chase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nodes = GameObject.FindGameObjectsWithTag("Pathnode");
 		animator = GetComponent<Animator>();
 		player = GameObject.Find("Player");
 		sprite = GetComponent<SpriteRenderer>();
