@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/OutsideEvent
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 0
+  transformTo: {x: 0, y: 0}
 --- !u!61 &366728537
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21721,8 +21721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/City1
-  destroyPlayer: 1
-  transformPlayer: {x: 0, y: 0}
+  transformPlayer: 1
+  transformTo: {x: 1, y: -8}
 --- !u!61 &1063414002
 BoxCollider2D:
   m_ObjectHideFlags: 0

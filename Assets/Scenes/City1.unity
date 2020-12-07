@@ -450,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/Gate
   transformPlayer: 0
-  transformTo: {x: 0, y: 0}
+  transformTo: {x: 2.5, y: -8}
 --- !u!61 &240245872
 BoxCollider2D:
   m_ObjectHideFlags: 0

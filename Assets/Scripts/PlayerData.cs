@@ -48,6 +48,7 @@ public static class PlayerData {
 	public static Weapon weapon = new Weapon{name = "Hammer of Dev", typeDice = 20, numDice = 5};
 	public static Enemy currentBattle = new Enemy{name = "Zombie", typeDice = 6, numDice = 1};
 	public static Vector2 playerPosition = new Vector2(1, 1);
+	public static bool useUnityPosition = true;
 	
 	public static float food = 0;
 	public static float weapons = 0;

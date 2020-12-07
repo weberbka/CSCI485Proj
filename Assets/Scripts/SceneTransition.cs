@@ -16,7 +16,11 @@ public class SceneTransition : MonoBehaviour
 	
     void OnTriggerEnter2D(Collider2D other)
     {
-		if(transformPlayer) PlayerData.playerPosition = transformTo;
+		PlayerData.useUnityPosition = true;
+		if(transformPlayer){
+			PlayerData.playerPosition = transformTo;
+			PlayerData.useUnityPosition = false;
+		}
 		SceneManager.LoadSceneAsync(sceneToLoad);
 		
     }
