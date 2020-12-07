@@ -43,8 +43,10 @@ public static class PlayerData {
 	}
 	
 	public static bool killSignal = false;
+	public static bool killNullify = false;
 	
 	//public static Weapon weapon = new Weapon{name = "Fists", typeDice = 6, numDice = 1};
+	public static Weapon lastWeapon = new Weapon{name = "Fists", typeDice = 6, numDice = 1};
 	public static Weapon weapon = new Weapon{name = "Hammer of Dev", typeDice = 20, numDice = 5};
 	public static Enemy currentBattle = new Enemy{name = "Zombie", typeDice = 6, numDice = 1};
 	public static Vector2 playerPosition = new Vector2(1, 1);

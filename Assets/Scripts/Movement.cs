@@ -29,6 +29,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		//KILL NULLIFY
+		if(PlayerData.killSignal && PlayerData.killNullify){
+			PlayerData.killSignal = false;
+			PlayerData.killNullify = false;
+			transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = true;
+		}
 		//MOVEMENT
 		movement.x = Input.GetAxisRaw("Horizontal");
 		movement.y = Input.GetAxisRaw("Vertical");
