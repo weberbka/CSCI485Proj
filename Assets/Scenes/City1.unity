@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 262850418}
   - component: {fileID: 262850417}
   - component: {fileID: 262850415}
+  - component: {fileID: 262850414}
   m_Layer: 0
   m_Name: Old_Man_2
   m_TagString: Untagged
@@ -496,6 +497,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &262850414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262850413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e62aed30b921214bb0e8e985ca09b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectOffsetY: 0.85
+  detectOffsetX: 1.6
+  range: 2.4
+  text: 'Hi Eric, since you are a villager now, I recommand to see our great tree.
+
+    Go
+    east and then north you will find it.'
 --- !u!58 &262850415
 CircleCollider2D:
   m_ObjectHideFlags: 0
