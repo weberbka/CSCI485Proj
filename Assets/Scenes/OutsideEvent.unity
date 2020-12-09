@@ -14495,6 +14495,7 @@ GameObject:
   - component: {fileID: 1255242471}
   - component: {fileID: 1255242474}
   - component: {fileID: 1255242473}
+  - component: {fileID: 1255242475}
   m_Layer: 0
   m_Name: oldtree2
   m_TagString: Untagged
@@ -14562,7 +14563,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.05, y: -13.39, z: 0}
   m_LocalScale: {x: 3.2714865, y: 3.2714865, z: 3.2714865}
-  m_Children: []
+  m_Children:
+  - {fileID: 1413861109}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14595,6 +14597,23 @@ CircleCollider2D:
   m_Offset: {x: 0.02, y: -0.47}
   serializedVersion: 2
   m_Radius: 0.12
+--- !u!114 &1255242475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255242470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b001e4b3a025c4aa5f920773f6282b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectOffsetY: 2
+  detectOffsetX: 4.35
+  range: 0.75
+  text: Laying against the tree is someone's walking stick. You probably can make
+    good use of this. (Cain 1D6)
 --- !u!1 &1261513223
 GameObject:
   m_ObjectHideFlags: 0
@@ -14975,6 +14994,36 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168136246}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1413861108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413861109}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413861109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413861108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1255242472}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1622859201
