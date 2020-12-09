@@ -25,11 +25,24 @@ public static class PlayerData {
 	public static Loot wheelOfLoot(string name){
 		if(name == "Zombie"){
 			float yourRoll = Random.Range(1.00f, 100.99f);
-			if(yourRoll > 99) return new Loot{name = "Dark amulet", type = "weapons", worth = 0.5f};
-			if(yourRoll > 85) return new Loot{name = "3 bullets", type = "weapons", worth = 0.05f};
-			if(yourRoll > 80) return new Loot{name = "Dead rabbit", type = "food", worth = 0.5f};
-			if(yourRoll > 70) return new Loot{name = "Twinkie", type = "food", worth = 0.1f};
+			if(yourRoll > 95) return new Loot{name = "Magic amulet", type = "weapons", worth = 0.5f};
+			if(yourRoll > 75) return new Loot{name = "3 bullets", type = "weapons", worth = 0.05f};
+			if(yourRoll > 60) return new Loot{name = "Rabbit meat", type = "food", worth = 0.2f};
+			if(yourRoll > 40) return new Loot{name = "Twinkie", type = "food", worth = 0.1f};
 			return new Loot{name = "Zombie guts", type = "worthless", worth = 0f};
+		}
+		if(name == "Radioactive Rabbit"){
+			float yourRoll = Random.Range(1.00f, 100.99f);
+			if(yourRoll > 90) return new Loot{name = "Lucky Rabbit Foot", type = "weapons", worth = 0.2f};
+			if(yourRoll > 70) return new Loot{name = "Small bones", type = "weapons", worth = 0.05f};
+			if(yourRoll > 55) return new Loot{name = "Rabbit meat", type = "food", worth = 0.3f};
+			return new Loot{name = "Irradiated meat", type = "worthless", worth = 0f};
+		}
+		if(name == "Feral Dog"){
+			float yourRoll = Random.Range(1.00f, 100.99f);
+			if(yourRoll > 85) return new Loot{name = "Dog Meat", type = "food", worth = 0.5f};
+			if(yourRoll > 60) return new Loot{name = "Bones", type = "weapons", worth = 0.1f};
+			return new Loot{name = "Irradiated meat", type = "worthless", worth = 0f};
 		}
 		return new Loot{type = "nothing"};
 	}
