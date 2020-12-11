@@ -80,7 +80,6 @@ public class RandomEntity : MonoBehaviour
 							PlayerData.food += 0.3f;
 						}else{
 							InteractionTextPro.text = "A satchel lays on the ground. You open it but find nothing of use.";
-							PlayerData.food += 0.3f;
 						}
 					}
 					open = true;

@@ -58,16 +58,16 @@ public static class PlayerData {
 	public static bool killSignal = false;
 	public static bool killNullify = false;
 	
-	//public static Weapon weapon = new Weapon{name = "Fists", typeDice = 6, numDice = 1};
-	public static Weapon lastWeapon = new Weapon{name = "Fists", typeDice = 6, numDice = 1};
-	public static Weapon weapon = new Weapon{name = "Hammer of Dev", typeDice = 20, numDice = 5};
+	public static Weapon weapon = new Weapon{name = "Fists", typeDice = 4, numDice = 1};
+	public static Weapon lastWeapon = new Weapon{name = "Fists", typeDice = 4, numDice = 1};
+	//public static Weapon weapon = new Weapon{name = "Hammer of Dev", typeDice = 20, numDice = 5};
 	public static Enemy currentBattle = new Enemy{name = "Zombie", typeDice = 6, numDice = 1};
 	public static Vector2 playerPosition = new Vector2(1, 1);
 	public static bool useUnityPosition = true;
 	
-	public static float food = 0;
-	public static float weapons = 0;
-	public static float medicine = 0;
-	public static float wood = 0;
+	public static float food = 2;
+	public static float weapons = 3;
+	public static float medicine = 1;
+	public static float wood = 3;
 	public static float iron = 0;
 }
